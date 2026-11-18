@@ -16,10 +16,14 @@ For each specialty, take its highest reference similarity, then display the top 
 
 ## Boundaries
 
-Use fictional questionnaire responses. Exclude patient records, diagnosis, treatment, urgency decisions, accounts, deployment, chatbots, LLM explanations and agents from v1.
+Use fictional questionnaire responses. Exclude patient records, diagnosis, treatment, urgency decisions, accounts, deployment, chatbots and agents from v1.
 
 ## Completion criteria
 
 - Run the local questionnaire end to end with the reviewed CSV and document installation and model setup.
 - Evaluate 15 fictional cases written separately from the reference descriptions, one intended specialty per case. Record expected specialties before running the model, report top-three hit count, and discuss ambiguous or missed matches. This evaluates retrieval for the class demo.
 - Deliver commented code, PDF documentation covering sources, preprocessing, scoring choices, evaluation and limitations, and an in-class presentation and working demo.
+
+## Agreed LLM extension
+
+Add grounded explanations of the ranked specialties using the user input, retrieved descriptions, scores and source URLs as context. This is a simple RAG extension built on the existing retrieval engine. Preserve the calculated ranking and provide a template fallback if the LLM is unavailable. Axel owns this extension, with Thomas integrating the explanations into the interface. See TEAM.md for the full allocation.
