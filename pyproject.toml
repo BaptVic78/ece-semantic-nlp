@@ -3,5 +3,6 @@ name = "ece-semantic-nlp"
 version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
+    "sentence-transformers>=6.3.0",
     "streamlit>=1.32,<2",
 ]
