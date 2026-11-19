@@ -1,0 +1,533 @@
+{
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "cases_sha256": "d38fb3cd282d7826f4df34099323e25e5b0f9b3ccbdb794cb042953d84596562",
+  "corpus_sha256": "eaf928ecde68c0203000b0107d146b6f09167689ae7bebe24bfa8263509b7e32",
+  "single_target_count": 15,
+  "top_one_hits": 13,
+  "top_three_hits": 15,
+  "records": [
+    {
+      "id": "S01",
+      "group": "single",
+      "expected": [
+        "DERM"
+      ],
+      "matches": [
+        {
+          "specialty_id": "DERM",
+          "description_id": "DERM-001",
+          "score": 0.6343114972114563
+        },
+        {
+          "specialty_id": "ALLG",
+          "description_id": "ALLG-003",
+          "score": 0.49863219261169434
+        },
+        {
+          "specialty_id": "ORTH",
+          "description_id": "ORTH-003",
+          "score": 0.46780863404273987
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "group": "single",
+      "expected": [
+        "OPHT"
+      ],
+      "matches": [
+        {
+          "specialty_id": "OPHT",
+          "description_id": "OPHT-001",
+          "score": 0.5082303285598755
+        },
+        {
+          "specialty_id": "NEUR",
+          "description_id": "NEUR-001",
+          "score": 0.4741445779800415
+        },
+        {
+          "specialty_id": "ENT",
+          "description_id": "ENT-003",
+          "score": 0.36514905095100403
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "group": "single",
+      "expected": [
+        "ENT"
+      ],
+      "matches": [
+        {
+          "specialty_id": "ENT",
+          "description_id": "ENT-001",
+          "score": 0.5311509370803833
+        },
+        {
+          "specialty_id": "NEUR",
+          "description_id": "NEUR-001",
+          "score": 0.42841091752052307
+        },
+        {
+          "specialty_id": "PULM",
+          "description_id": "PULM-003",
+          "score": 0.3328268527984619
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "group": "single",
+      "expected": [
+        "CARD"
+      ],
+      "matches": [
+        {
+          "specialty_id": "NEUR",
+          "description_id": "NEUR-003",
+          "score": 0.43219345808029175
+        },
+        {
+          "specialty_id": "CARD",
+          "description_id": "CARD-001",
+          "score": 0.42161884903907776
+        },
+        {
+          "specialty_id": "PULM",
+          "description_id": "PULM-001",
+          "score": 0.41430652141571045
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "group": "single",
+      "expected": [
+        "PULM"
+      ],
+      "matches": [
+        {
+          "specialty_id": "PULM",
+          "description_id": "PULM-001",
+          "score": 0.6657754778862
+        },
+        {
+          "specialty_id": "UROL",
+          "description_id": "UROL-003",
+          "score": 0.4053884744644165
+        },
+        {
+          "specialty_id": "ALLG",
+          "description_id": "ALLG-001",
+          "score": 0.3786349892616272
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "group": "single",
+      "expected": [
+        "GAST"
+      ],
+      "matches": [
+        {
+          "specialty_id": "GAST",
+          "description_id": "GAST-002",
+          "score": 0.736004114151001
+        },
+        {
+          "specialty_id": "UROL",
+          "description_id": "UROL-001",
+          "score": 0.43878495693206787
+        },
+        {
+          "specialty_id": "ALLG",
+          "description_id": "ALLG-002",
+          "score": 0.43769851326942444
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "group": "single",
+      "expected": [
+        "NEUR"
+      ],
+      "matches": [
+        {
+          "specialty_id": "NEUR",
+          "description_id": "NEUR-001",
+          "score": 0.5331841111183167
+        },
+        {
+          "specialty_id": "PULM",
+          "description_id": "PULM-001",
+          "score": 0.4301522374153137
+        },
+        {
+          "specialty_id": "ENDO",
+          "description_id": "ENDO-002",
+          "score": 0.417081356048584
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "group": "single",
+      "expected": [
+        "RHEU"
+      ],
+      "matches": [
+        {
+          "specialty_id": "RHEU",
+          "description_id": "RHEU-001",
+          "score": 0.5976958274841309
+        },
+        {
+          "specialty_id": "ORTH",
+          "description_id": "ORTH-001",
+          "score": 0.4699975848197937
+        },
+        {
+          "specialty_id": "PULM",
+          "description_id": "PULM-001",
+          "score": 0.45531749725341797
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "group": "single",
+      "expected": [
+        "ORTH"
+      ],
+      "matches": [
+        {
+          "specialty_id": "ORTH",
+          "description_id": "ORTH-003",
+          "score": 0.4801671802997589
+        },
+        {
+          "specialty_id": "UROL",
+          "description_id": "UROL-001",
+          "score": 0.4120446741580963
+        },
+        {
+          "specialty_id": "RHEU",
+          "description_id": "RHEU-001",
+          "score": 0.3958476185798645
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "group": "single",
+      "expected": [
+        "UROL"
+      ],
+      "matches": [
+        {
+          "specialty_id": "UROL",
+          "description_id": "UROL-003",
+          "score": 0.5731609463691711
+        },
+        {
+          "specialty_id": "GAST",
+          "description_id": "GAST-003",
+          "score": 0.392902672290802
+        },
+        {
+          "specialty_id": "NEPH",
+          "description_id": "NEPH-003",
+          "score": 0.33638283610343933
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "group": "single",
+      "expected": [
+        "NEPH"
+      ],
+      "matches": [
+        {
+          "specialty_id": "NEPH",
+          "description_id": "NEPH-001",
+          "score": 0.6440693140029907
+        },
+        {
+          "specialty_id": "OPHT",
+          "description_id": "OPHT-002",
+          "score": 0.5072831511497498
+        },
+        {
+          "specialty_id": "UROL",
+          "description_id": "UROL-003",
+          "score": 0.4856862425804138
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "group": "single",
+      "expected": [
+        "ENDO"
+      ],
+      "matches": [
+        {
+          "specialty_id": "UROL",
+          "description_id": "UROL-003",
+          "score": 0.5470274090766907
+        },
+        {
+          "specialty_id": "ENDO",
+          "description_id": "ENDO-002",
+          "score": 0.45258432626724243
+        },
+        {
+          "specialty_id": "GAST",
+          "description_id": "GAST-003",
+          "score": 0.4214814305305481
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "group": "single",
+      "expected": [
+        "GYNE"
+      ],
+      "matches": [
+        {
+          "specialty_id": "GYNE",
+          "description_id": "GYNE-001",
+          "score": 0.6169395446777344
+        },
+        {
+          "specialty_id": "RHEU",
+          "description_id": "RHEU-003",
+          "score": 0.488600492477417
+        },
+        {
+          "specialty_id": "GAST",
+          "description_id": "GAST-001",
+          "score": 0.4832950234413147
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "group": "single",
+      "expected": [
+        "ALLG"
+      ],
+      "matches": [
+        {
+          "specialty_id": "ALLG",
+          "description_id": "ALLG-001",
+          "score": 0.8023474216461182
+        },
+        {
+          "specialty_id": "OPHT",
+          "description_id": "OPHT-002",
+          "score": 0.5438343286514282
+        },
+        {
+          "specialty_id": "ENT",
+          "description_id": "ENT-002",
+          "score": 0.35597506165504456
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "group": "single",
+      "expected": [
+        "HEMA"
+      ],
+      "matches": [
+        {
+          "specialty_id": "HEMA",
+          "description_id": "HEMA-003",
+          "score": 0.6555942296981812
+        },
+        {
+          "specialty_id": "UROL",
+          "description_id": "UROL-001",
+          "score": 0.36885616183280945
+        },
+        {
+          "specialty_id": "RHEU",
+          "description_id": "RHEU-002",
+          "score": 0.344146192073822
+        }
+      ]
+    },
+    {
+      "id": "A01",
+      "group": "ambiguous",
+      "expected": [
+        "CARD",
+        "PULM"
+      ],
+      "matches": [
+        {
+          "specialty_id": "PULM",
+          "description_id": "PULM-001",
+          "score": 0.5710322856903076
+        },
+        {
+          "specialty_id": "CARD",
+          "description_id": "CARD-003",
+          "score": 0.49202027916908264
+        },
+        {
+          "specialty_id": "UROL",
+          "description_id": "UROL-003",
+          "score": 0.43567466735839844
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "group": "ambiguous",
+      "expected": [
+        "NEPH",
+        "UROL"
+      ],
+      "matches": [
+        {
+          "specialty_id": "NEPH",
+          "description_id": "NEPH-003",
+          "score": 0.6375045776367188
+        },
+        {
+          "specialty_id": "UROL",
+          "description_id": "UROL-001",
+          "score": 0.5657165050506592
+        },
+        {
+          "specialty_id": "RHEU",
+          "description_id": "RHEU-002",
+          "score": 0.4620186388492584
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "group": "ambiguous",
+      "expected": [
+        "NEUR",
+        "ORTH"
+      ],
+      "matches": [
+        {
+          "specialty_id": "ORTH",
+          "description_id": "ORTH-001",
+          "score": 0.5713824033737183
+        },
+        {
+          "specialty_id": "RHEU",
+          "description_id": "RHEU-001",
+          "score": 0.5040979385375977
+        },
+        {
+          "specialty_id": "NEUR",
+          "description_id": "NEUR-002",
+          "score": 0.3864199221134186
+        }
+      ]
+    },
+    {
+      "id": "O01",
+      "group": "out_of_domain",
+      "expected": [],
+      "matches": [
+        {
+          "specialty_id": "GAST",
+          "description_id": "GAST-001",
+          "score": 0.2391926497220993
+        },
+        {
+          "specialty_id": "PULM",
+          "description_id": "PULM-001",
+          "score": 0.22281600534915924
+        },
+        {
+          "specialty_id": "NEUR",
+          "description_id": "NEUR-003",
+          "score": 0.21740511059761047
+        }
+      ]
+    },
+    {
+      "id": "O02",
+      "group": "out_of_domain",
+      "expected": [],
+      "matches": [
+        {
+          "specialty_id": "DERM",
+          "description_id": "DERM-002",
+          "score": 0.2866591811180115
+        },
+        {
+          "specialty_id": "RHEU",
+          "description_id": "RHEU-001",
+          "score": 0.27678942680358887
+        },
+        {
+          "specialty_id": "NEUR",
+          "description_id": "NEUR-001",
+          "score": 0.24006618559360504
+        }
+      ]
+    },
+    {
+      "id": "O03",
+      "group": "out_of_domain",
+      "expected": [],
+      "matches": [
+        {
+          "specialty_id": "NEUR",
+          "description_id": "NEUR-003",
+          "score": 0.3011091351509094
+        },
+        {
+          "specialty_id": "ENDO",
+          "description_id": "ENDO-002",
+          "score": 0.2802026569843292
+        },
+        {
+          "specialty_id": "ORTH",
+          "description_id": "ORTH-001",
+          "score": 0.24287088215351105
+        }
+      ]
+    },
+    {
+      "id": "V01",
+      "group": "vague",
+      "expected": [],
+      "matches": [
+        {
+          "specialty_id": "ENDO",
+          "description_id": "ENDO-002",
+          "score": 0.48879632353782654
+        },
+        {
+          "specialty_id": "NEUR",
+          "description_id": "NEUR-001",
+          "score": 0.48777344822883606
+        },
+        {
+          "specialty_id": "HEMA",
+          "description_id": "HEMA-001",
+          "score": 0.4086989462375641
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+id,group,expected,description,location
+S01,single,DERM,"Since switching to winter clothes I keep scratching rough patches that split when I bend my arms.",elbow creases
+S02,single,OPHT,"Oncoming headlights have rings around them and the subtitles on the television look hazier every month.",
+S03,single,ENT,"Even when the house is completely silent I hear a high electronic whine.",
+S04,single,CARD,"Halfway up the station stairs I get a heavy band across my chest that eases when I stop walking.",
+S05,single,PULM,"I wake up coughing before dawn and hear a whistle each time I breathe out.",
+S06,single,GAST,"After supper I get a burning feeling behind my breastbone and something sour comes back into my throat.",
+S07,single,NEUR,"I have to lie in a dark quiet room when the pounding behind one temple starts. I feel sick too.",
+S08,single,RHEU,"Both sets of knuckles look puffy and it takes most of the morning before I can close my fists comfortably.",
+S09,single,ORTH,"I struggle to reach the top kitchen shelf or fasten clothes behind my back because one arm will not go far enough.",shoulder
+S10,single,UROL,"At the toilet I have to wait for anything to come out. When it finally starts the flow is feeble and stops twice.",
+S11,single,NEPH,"My child's eyelids are puffy at breakfast and their urine leaves a thick layer of bubbles in the bowl.",
+S12,single,ENDO,"I have started sleeping with a water bottle next to me and keep getting up to use the toilet. My clothes are also getting looser.",
+S13,single,GYNE,"The cramps I get with my period are bad enough that I miss lectures. The ache sometimes goes into my lower back.",
+S14,single,ALLG,"Whenever pollen is high I start sneezing repeatedly and end up rubbing my watering eyes.",
+S15,single,HEMA,"Small knocks leave large marks on my legs and the place where a tooth was pulled kept bleeding for much longer than expected.",
+A01,ambiguous,CARD|PULM,"I have to pause for breath when I carry shopping up the stairs and sometimes feel a tight chest.",
+A02,ambiguous,NEPH|UROL,"I saw red urine this morning and have an ache wrapping around one side of my waist.",
+A03,ambiguous,NEUR|ORTH,"My fingers wake me up with pins and needles and I have started dropping mugs.",
+O01,out_of_domain,,"How do I reschedule a parcel delivery?",
+O02,out_of_domain,,"Sort these numbers from smallest to largest: 8 2 7.",
+O03,out_of_domain,,"Can you recommend a novel for the train?",
+V01,vague,,"I just feel a bit off.",

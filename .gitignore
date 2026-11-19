@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+data/symptom_descriptions_embeddings.npz
+data/symptom_descriptions_embeddings_210.npz
+
+.uv-cache/
+.hf-cache/
+tmp/
+evaluation/.source-pages.json
