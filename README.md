@@ -20,7 +20,7 @@ $env:HF_HUB_OFFLINE = '1'
 uv run --no-sync streamlit run app.py --server.address 127.0.0.1 --browser.gatherUsageStats false
 ```
 
-Use only fictional examples. Duration and intensity are displayed as context. Ranking uses normalized embeddings of the description and optional location, scores references by cosine similarity, then takes the strongest reference per specialty. Each result includes the matched passage, its score and a link to its source.
+Use only fictional examples. The optional body area, duration, onset and per-symptom frequencies are added to the text used for ranking. Each frequency stays attached to the symptom it describes. Per-symptom intensity is displayed as context and has no effect on the score. The comparison chart shows the specialties in either top three, using the description alone and then the same description with the supplied details. Expand **View all 15 specialties** to see the complete ranks and scores. Each top result includes the matched passage and its source.
 
 ## Local explanations
 
@@ -48,6 +48,8 @@ uv run --no-sync python scripts/compare_corpora.py
 ```
 
 The baseline build and `evaluate.py` reproduce the original 45-reference experiment with a separate cache and write `evaluation/results.json`. The current app uses `data/specialities_210.csv`. To compare both versions, run `compare_corpora.py`, which writes `evaluation/corpus_comparison.json`. On the 30 new single-target cases, the 210-reference version achieved 26/30 top-one and 30/30 top-three hits, against 22/30 and 26/30 with 45 references. These cases were designed with knowledge of both corpora.
+
+The saved corpus comparison predates the new structured fields. The in-app comparison illustrates changes for one query. It has not established that adding details improves retrieval across a test set.
 
 Open [the current report](report/semantic-specialty-report.pdf) for the application and corpus comparison. Edit `report/report_content.py` to revise the prose. The original report is archived in `output/pdf/`.
 

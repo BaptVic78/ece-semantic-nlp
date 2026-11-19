@@ -8,7 +8,7 @@ from unittest.mock import patch
 import numpy as np
 
 import explanations
-from input_processing import prepare_input
+from input_processing import prepare_detailed_input, prepare_input
 import matching
 
 
@@ -17,6 +17,22 @@ class PrototypeTests(unittest.TestCase):
         self.assertEqual(prepare_input("  dry   skin ", " arms "), "Symptoms: dry skin\nLocation: arms")
         with self.assertRaises(ValueError):
             prepare_input("   ", "arms")
+
+    def test_optional_frequencies_stay_attached_to_their_symptoms(self):
+        description = "Cramps  and nausea"
+        self.assertEqual(
+            prepare_detailed_input(description, onset="Unspecified", symptoms=[
+                ("cramps", "Unspecified"), ("  ", "Once"),
+            ]),
+            prepare_input(description),
+        )
+        self.assertEqual(
+            prepare_detailed_input(description, "belly", duration="  two days ", onset="Sudden",
+                                   symptoms=[(" abdominal cramps ", "Comes and goes"),
+                                             ("nausea", "Constant")]),
+            "Symptoms: Cramps and nausea\nLocation: belly\nDuration: two days\nOnset: sudden\n"
+            "Frequency of abdominal cramps: comes and goes\nFrequency of nausea: constant",
+        )
 
     def test_reference_integrity(self):
         rows, _ = matching.read_references()

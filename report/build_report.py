@@ -99,10 +99,10 @@ def case_table(data):
     return grid(rows, [65, 155, 130, WIDTH - 350])
 
 
-def screenshot():
-    asset = HERE / "streamlit-demo.png"
+def screenshot(filename, max_height):
+    asset = HERE / filename
     w, h = ImageReader(str(asset)).getSize()
-    scale = min(WIDTH / w, 374 / h)
+    scale = min(WIDTH / w, max_height / h)
     return Image(str(asset), w * scale, h * scale)
 
 
@@ -170,12 +170,16 @@ def main():
                 ["Specialty", "S(k) = max s(i) over passages i assigned to specialty k."],
             ], [115, WIDTH - 115])])
         elif i == 2:
-            story.extend([screenshot(), para("Figure 1. Current Streamlit results for the cough, fever and vomiting query, shown with the standard explanation.", "caption")])
+            story.extend([screenshot("streamlit-demo.png", 365),
+                          para("Figure 1. Results for the description alone, shown with the standard explanation.", "caption")])
         elif i == 3:
-            story.extend([comparison_table(data), Spacer(1, 14)])
+            story.extend([screenshot("symptom-comparison.png", 300),
+                          para("Figure 2. Description alone versus the same description with duration and two symptom frequencies.", "caption")])
         elif i == 4:
-            story.extend([para("Selected changes in target rank", "subhead"), case_table(data)])
+            story.extend([comparison_table(data), Spacer(1, 14)])
         elif i == 5:
+            story.extend([para("Selected changes in target rank", "subhead"), case_table(data)])
+        elif i == 6:
             story.extend(reproduce())
         story.extend(para(text) for text in section.get("after", []))
     output = HERE / "semantic-specialty-report.pdf"

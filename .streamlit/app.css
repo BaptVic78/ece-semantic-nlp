@@ -40,8 +40,9 @@
     font-size: 1.02rem;
 }
 
-[data-testid="stForm"],
+.st-key-symptom_form,
 .st-key-score_chart,
+.st-key-comparison_chart,
 .st-key-match_1,
 .st-key-match_2,
 .st-key-match_3 {

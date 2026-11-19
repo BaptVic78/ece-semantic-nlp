@@ -68,12 +68,19 @@ def best_match_per_specialty(scores, rows):
     return sorted(best.values(), key=lambda match: (-match["score"], match["specialty_id"]))
 
 
-def rank_specialties(text, *, csv_path=None, cache_path=None):
-    """Use this same entry point in the demo and evaluation."""
+def rank_queries(texts, *, csv_path=None, cache_path=None):
+    """Rank every specialty for each query against the same reference vectors."""
     rows, fingerprint = read_references(csv_path)
     vectors = load_reference_embeddings(rows, fingerprint, cache_path)
-    query = embed(text)
-    if query.shape != (DIMENSIONS,) or not np.isclose(np.linalg.norm(query), 1, atol=1e-4):
+    queries = embed(texts)
+    if queries.shape != (len(texts), DIMENSIONS) or not np.allclose(
+        np.linalg.norm(queries, axis=1), 1, atol=1e-4
+    ):
         raise ValueError("The query encoder returned an invalid embedding.")
-    return best_match_per_specialty(cosine_similarity(vectors, query), rows)[:3]
+    return [best_match_per_specialty(cosine_similarity(vectors, query), rows) for query in queries]
+
+
+def rank_specialties(text, *, csv_path=None, cache_path=None):
+    """Return the three closest specialties for a single query."""
+    return rank_queries([text], csv_path=csv_path, cache_path=cache_path)[0][:3]
 

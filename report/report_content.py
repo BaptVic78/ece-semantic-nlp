@@ -16,8 +16,9 @@ SECTIONS = [
         "label": "Retrieval method",
         "title": "How the ranking works",
         "paragraphs": [
-            "The app accepts a symptom description, an optional body area, an optional duration and a reported intensity. It tidies spaces in the first two fields before encoding them together. Duration and the intensity dropdown are displayed with the result. They have no effect on the score, although time or intensity mentioned in the free text can influence the encoding.",
-            "We use all-MiniLM-L6-v2 [2] to turn each passage into a vector of 384 numbers. The same model encodes the query. Only the symptom description goes into each reference vector. The title of the source page and the specialty name are kept as metadata, so the comparison is driven by the wording of the passage.",
+            "The description is the only required field. A user can also enter the body area, how long the symptoms have been present and whether they started suddenly or gradually. In Add symptom details, each symptom can have its own intensity and frequency. This lets someone describe cramps that come and go and nausea that stays constant, even when both started at about the same time.",
+            "Before encoding, the app cleans up whitespace and appends the body area, duration, onset and each supplied frequency. A frequency is written next to its symptom so the model can tell which one it describes. Blank fields are omitted. The intensity dropdowns are shown in the results for context. Those selections have no effect on the score, though intensity mentioned in the description is still part of the query.",
+            "We use all-MiniLM-L6-v2 [2] to turn each passage into a vector of 384 numbers. The same model encodes the query. Only the symptom description goes into each reference vector. The source topic and specialty name stay in the CSV as metadata.",
             "Cosine similarity measures how closely the vectors point in the same direction. Since the encoder normalises both vectors to length one, the score is simply their dot product. This gives one score per passage. The highest score within each specialty becomes that specialty's score. The app sorts the 15 scores and shows the first three, with the passage responsible for each one.",
             "Taking the maximum makes the result easy to trace to a source. It also gives an unrelated passage a chance to win if a prominent detail happens to match. Giving every specialty 14 passages keeps the corpus balanced in size, although it cannot make the coverage of the specialties equally complete.",
             "Reference vectors are computed once and stored locally. The app checks the model name, file fingerprint, description IDs and shape before using the saved vectors. If the CSV has changed, the cache must be rebuilt.",
@@ -27,7 +28,7 @@ SECTIONS = [
         "label": "Results screen",
         "title": "Reading a result",
         "paragraphs": [
-            'The figure shows what the current app displays for the test sentence "I am vomiting, I have a fever, and I have a dry cough." The first card links to the source of the passage that mentions coughing and fever. The same source is shown beside the result regardless of which explanation is available.',
+            'The figure shows what the app returns for "I have abdominal cramps, nausea and fever." For this first run we entered the sentence on its own. The first card shows the reference passage and its source. The link stays the same whether the app displays matching excerpts or a standard note.',
         ],
         "after": [
             'When Ollama is available, the app passes the query and its three retrieved passages to Qwen3 8B [3, 4]. Qwen3 proposes short quotes from the query and reference for the "Matching excerpts" section. The app checks that both quotes appear in their respective texts. If it cannot use a pair, "About this match" displays a standard note. The figure shows that fallback.',
@@ -35,10 +36,23 @@ SECTIONS = [
         ],
     },
     {
+        "label": "Input comparison",
+        "title": "What the extra details change",
+        "paragraphs": [
+            "The app runs the same ranking twice when details are supplied. The grey bars use the description alone. The purple bars use that description plus the supplied details. The chart includes specialties from either top three, so a specialty remains visible even if it drops out of one list. View all 15 specialties shows both ranks and scores for the complete list.",
+            'For the query on the previous page, we entered a duration of "two days" and set abdominal cramps to "Comes and goes" and nausea to "Constant". We also marked the cramps as severe and the nausea as mild. Those two intensity ratings appear in the reported details, while the duration and frequencies go into the search.',
+        ],
+        "after": [
+            "Gastroenterology stayed first even though its score fell from 0.610 to 0.588. Pulmonology moved from sixth to second while its score also fell, from 0.521 to 0.509. It rose because other specialties fell further. Looking at the rank and the score together makes this easier to see.",
+            "Several fields changed in this example, so the chart shows their combined effect. To isolate a field, keep everything else the same and change only that field. To measure whether it improves retrieval, compare both modes on multiple cases with expected specialties recorded in advance.",
+        ],
+    },
+    {
         "label": "Evaluation",
         "title": "Comparing 45 and 210 passages",
         "paragraphs": [
             "Both corpora were run through the same model and scoring code. We used the 15 single-target cases from the first report and 30 additional cases, two per specialty. We recorded a single expected specialty for each before running either corpus. A top-one hit means it was ranked first. A top-three hit means it was among the three shown in the app.",
+            "This experiment measures the change in corpus size. It predates the new fields and uses the symptom description and the optional body area for both corpora. The chart on the previous page holds the 210-passage corpus fixed and changes the input instead. The figures below do not measure the benefit of the new fields.",
         ],
         "after": [
             "On the original set, the larger corpus gained one first-place hit and lost one top-three hit. On the new set, six cases gained a correct first-place result and two lost one. Four cases became top-three hits and none dropped out of the top three. In a separate check, both corpora returned both anticipated labels in all seven ambiguous cases.",
